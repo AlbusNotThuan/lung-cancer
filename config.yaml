@@ -76,26 +76,26 @@ imbalance:
 training:
   n_workers: 4  # Number of parallel workers
 
-# Active Learning Configuration
-active_learning:
-  enabled: true
-  approach: "train_only"  # Options: "combined" (train+test split) or "train_only" (train split, test separate)
+# # Active Learning Configuration
+# active_learning:
+#   enabled: true
+#   approach: "train_only"  # Options: "combined" (train+test split) or "train_only" (train split, test separate)
   
-  # Data split
-  labeled_ratio: 0.1  # Percentage of data to use as initial labeled set (e.g., 0.1 = 10%)
-  validation_ratio: 0.2  # Percentage of labeled data to use for validation
+#   # Data split
+#   labeled_ratio: 0.1  # Percentage of data to use as initial labeled set (e.g., 0.1 = 10%)
+#   validation_ratio: 0.2  # Percentage of labeled data to use for validation
   
-  # Confidence thresholds
-  confidence_threshold: 0.5  # Static threshold when use_dynamic_threshold=false
-  use_dynamic_threshold: false  # Progressive threshold increase
-  tau_min: 0.7  # Starting threshold (when dynamic)
-  tau_max: 0.95  # Ending threshold (when dynamic)
+#   # Confidence thresholds
+#   confidence_threshold: 0.5  # Static threshold when use_dynamic_threshold=false
+#   use_dynamic_threshold: false  # Progressive threshold increase
+#   tau_min: 0.7  # Starting threshold (when dynamic)
+#   tau_max: 0.95  # Ending threshold (when dynamic)
   
-  # Training iterations
-  max_epochs: 20  # Maximum number of active learning cycles
+#   # Training iterations
+#   max_epochs: 20  # Maximum number of active learning cycles
   
-  # Imbalance handling
-  apply_imbalance_to_initial: true  # Apply imbalance methods only to initial labeled set
+#   # Imbalance handling
+#   apply_imbalance_to_initial: true  # Apply imbalance methods only to initial labeled set
 
 # Evaluation Settings
 evaluation:
