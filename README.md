@@ -33,7 +33,7 @@ A modular machine learning pipeline for supervised training with multiple models
    ```
    MyDrive/
    └── projects/
-       └── auto-labeling/
+       └── lung_cancer/
            ├── train.ipynb
            ├── config.yaml
            ├── setup.py
