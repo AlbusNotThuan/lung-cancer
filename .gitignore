@@ -1,1 +1,8 @@
-
+*-info/
+results/
+data/call-quality/
+__pycache__/
+1540_Alex.ipynb
+.vscode/
+full visit_Hoang.ipynb
+datasets/call_quality.py

@@ -49,8 +49,8 @@ class Evaluator:
             return {
                 "threshold": threshold,
                 "accuracy": accuracy_score(y_true, y_pred),
-                "sensitivity": recall_score(y_true, y_pred, zero_division=0),
-                "specificity": tn / (tn + fp) if (tn + fp) > 0 else 0,
+                "macro_f1": f1_score(y_true, y_pred, average='macro', zero_division=0),
+                "weighted_f1": f1_score(y_true, y_pred, average='weighted', zero_division=0),
                 "precision": precision_score(y_true, y_pred, zero_division=0),
                 "recall": recall_score(y_true, y_pred, zero_division=0),
                 "f1": f1_score(y_true, y_pred, zero_division=0),
@@ -89,18 +89,17 @@ class Evaluator:
         """
         results = []
         
-        if self.task_type == "binary":
-            for threshold in self.thresholds:
-                metrics = self.calculate_metrics(y_true, y_pred_proba, threshold)
-                metrics["model"] = model_name
-                metrics["imbalance_method"] = imbalance_method
-                metrics["train_time"] = train_time
-                results.append(metrics)
-        else:
-            metrics = self.calculate_metrics(y_true, y_pred_proba)
-            metrics["model"] = model_name
-            metrics["imbalance_method"] = imbalance_method
-            metrics["train_time"] = train_time
-            results.append(metrics)
+        # if self.task_type == "binary":
+        #     for threshold in self.thresholds:
+        #         metrics = self.calculate_metrics(y_true, y_pred_proba, threshold)
+        #         metrics["model"] = model_name
+        #         metrics["imbalance_method"] = imbalance_method
+        #         metrics["train_time"] = train_time
+        #         results.append(metrics)
+        # else:
+        metrics = self.calculate_metrics(y_true, y_pred_proba)
+        metrics["model"] = model_name
+        metrics["imbalance_method"] = imbalance_method
+        results.append(metrics)
         
         return results

@@ -16,6 +16,10 @@ class LungCancerDataset:
         # Allow custom paths
         self.train_path = train_path or self.default_train
         self.test_path = test_path or self.default_test
+
+        self.cols_to_remove = [
+            "OPD_DATE", "ID_simple"
+        ]
         
         # Dataset metadata
         self.target_column = "dead"
@@ -38,10 +42,10 @@ class LungCancerDataset:
             raise ValueError(f"Target column '{self.target_column}' not found in training data")
         
         # Separate features and target
-        X_train = train_df.drop(columns=[self.target_column])
+        X_train = train_df.drop(columns=[self.target_column] + self.cols_to_remove)
         y_train = train_df[self.target_column]
         
-        X_test = test_df.drop(columns=[self.target_column])
+        X_test = test_df.drop(columns=[self.target_column] + self.cols_to_remove)
         y_test = test_df[self.target_column]
         
         return X_train, y_train, X_test, y_test
