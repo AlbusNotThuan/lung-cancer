@@ -1,4 +1,4 @@
-# Auto-Labeling ML Pipeline
+# Lung Cancer Training Pipeline
 
 A modular machine learning pipeline for supervised training with multiple models and imbalance handling methods. This repository provides an easy-to-use framework for training and evaluating classification models on custom datasets.
 
